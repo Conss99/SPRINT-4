@@ -34,15 +34,15 @@
 
 import csv
 
-nroCheque = []
-CODbanco = []
-CODSUCURSAL = []
-NCTAOrigen = []
-NCTADest = []
+NroCheque = []
+CodigoBanco = []
+CodigoScurusal = []
+NumeroCuentaOrigen = []
+NumeroCuentaDestino = []
 Valor = []
-FechaOrgi = []
-FecPago = []
-Tipo = []
+FechaOrigen = []
+FechaPago = []
+TIPO = []
 DNI = []
 Estado = []
 
@@ -52,11 +52,38 @@ with open('env/csv/cheques_generales.csv', "r") as file:
     for l in lineas:
         linea = l.split(';')
         DNI.append([int(linea[9])])  # agrega el DNI al array
+        NroCheque.append([int(linea[0])])
+        CodigoBanco.append([linea[1]])
+        CodigoScurusal.append([linea[2]])
+        NumeroCuentaOrigen.append([linea[3]])
+        NumeroCuentaDestino.append([linea[4]])
+        Valor.append([linea[5]])
+        FechaOrigen.append([linea[6]])
+        FechaPago.append([linea[7]])
+        TIPO.append([linea[8]])
+        Estado.append([linea[10]])
 
 
-digitosDNI = []
+def cheques():
+    print('Número cheque: ', NroCheque, '\n')
+    print('Codigo del banco: ', CodigoBanco, '\n')
+    print('Código de la sucursal: ', CodigoScurusal, '\n')
+    print('Número Cuenta origen: ', NumeroCuentaOrigen, '\n')
+    print('Número Cuenta destino: ', NumeroCuentaDestino, '\n')
+    print('Valor: ', Valor, '\n')
+    print('Fecha de origen: ', FechaOrigen, '\n')
+    print('Fecha de pago: ', FechaPago, '\n')
+    print('Tipo: ', TIPO, '\n')
+    print('DNI: ', DNI, '\n')
+    print('Estado: ', Estado, '\n')
 
-for elem in sorted(DNI):
-    digitosDNI.append(elem[0])  # agrega los digitos del DNI a una lista
-print(' Cantidad de digitos del DNI: ')
-print(len(str(digitosDNI[2])))
+
+cheques()
+
+# digitosDNI = []
+
+# for elem in sorted(DNI):
+#     digitosDNI.append(elem[0])  # agrega los digitos del DNI a una lista
+# print(' Cantidad de digitos del DNI: ')
+# print(len(str(digitosDNI[2])))
+# # muestra la cantidad de digitos del segundo DNI de la lista
