@@ -46,13 +46,14 @@ TIPO = []
 DNI = []
 Estado = []
 
+
 with open('env/csv/cheques_generales.csv', "r") as file:
     lineas = file.read().splitlines()
     lineas.pop(0)
     for l in lineas:
         linea = l.split(';')
-        DNI.append([int(linea[9])])  # agrega el DNI al array
-        NroCheque.append([int(linea[0])])
+        DNI.append([(linea[9])])  # agrega el DNI al array
+        NroCheque.append([(linea[0])])
         CodigoBanco.append([linea[1]])
         CodigoScurusal.append([linea[2]])
         NumeroCuentaOrigen.append([linea[3]])
@@ -63,27 +64,58 @@ with open('env/csv/cheques_generales.csv', "r") as file:
         TIPO.append([linea[8]])
         Estado.append([linea[10]])
 
+repeticiones = {}
+
 
 def cheques():
-    print('Número cheque: ', NroCheque, '\n')
-    print('Codigo del banco: ', CodigoBanco, '\n')
-    print('Código de la sucursal: ', CodigoScurusal, '\n')
-    print('Número Cuenta origen: ', NumeroCuentaOrigen, '\n')
-    print('Número Cuenta destino: ', NumeroCuentaDestino, '\n')
-    print('Valor: ', Valor, '\n')
-    print('Fecha de origen: ', FechaOrigen, '\n')
-    print('Fecha de pago: ', FechaPago, '\n')
-    print('Tipo: ', TIPO, '\n')
-    print('DNI: ', DNI, '\n')
-    print('Estado: ', Estado, '\n')
+    pantalla = (str(input('Ingrese el DNI: ')))
+
+    for i in enumerate(linea[0]):
+
+        if pantalla in enumerate(linea[9]):
+            if linea[0].count(i) > 1:
+                print('Se repite el DNI: ', i)
+            else:
+                print('No se repite el DNI: ', i)
+
+        # print('El valor de la posición {posicion} es {valor}', '\n')
+
+        # if pantalla in linea[9]:
+        #     print(f'Existe')
+        # else:
+        #     print(f'No existe')
+        #     break
 
 
 cheques()
 
-# digitosDNI = []
+# print(f'El valor de la posición {posicion} es {valor}', '\n')
+# print('Número cheque: ', NroCheque[0], '\n')
+# print('Codigo del banco: ', CodigoBanco[0], '\n')
+# print('Código de la sucursal: ', CodigoScurusal[0], '\n')
+# print('Número Cuenta origen: ', NumeroCuentaOrigen[0], '\n')
+# print('Número Cuenta destino: ', NumeroCuentaDestino[0], '\n')
+# print('Valor: ', Valor[0], '\n')
+# print('Fecha de origen: ', FechaOrigen[0], '\n')
+# print('Fecha de pago: ', FechaPago[0], '\n')
+# print('Tipo: ', TIPO[0], '\n')
+# print('DNI: ', DNI[0], '\n')
+# print('Estado: ', Estado[0], '\n')
+# break
 
-# for elem in sorted(DNI):
-#     digitosDNI.append(elem[0])  # agrega los digitos del DNI a una lista
-# print(' Cantidad de digitos del DNI: ')
-# print(len(str(digitosDNI[2])))
-# # muestra la cantidad de digitos del segundo DNI de la lista
+# cheques()
+
+# def validacionDNI():
+
+#     pantalla = (str(input('Ingrese el DNI: ')))
+#     for posicion, valor in enumerate(DNI):
+#         # print(f'El valor de la posición {posicion} es {valor}')
+
+#         while str(pantalla) in valor:
+#             print('DNI correcto')
+#             break
+#         else:
+#             print('DNI incorrecto')
+#             break
+
+# validacionDNI()
