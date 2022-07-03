@@ -45,41 +45,26 @@ FechaPago = []
 TIPO = []
 DNI = []
 Estado = []
+v = []
+
 
 with open('env/csv/cheques_generales.csv', "r") as file:
     lineas = file.read().splitlines()
     lineas.pop(0)
-    for l in lineas:
-        linea = l.split(';')
-        DNI.append([int(linea[9])])  # agrega el DNI al array
-        NroCheque.append([int(linea[0])])
-        CodigoBanco.append([linea[1]])
-        CodigoScurusal.append([linea[2]])
-        NumeroCuentaOrigen.append([linea[3]])
-        NumeroCuentaDestino.append([linea[4]])
-        Valor.append([linea[5]])
-        FechaOrigen.append([linea[6]])
-        FechaPago.append([linea[7]])
-        TIPO.append([linea[8]])
-        Estado.append([linea[10]])
-
-
-def cheques():
-    print('Número cheque: ', NroCheque, '\n')
-    print('Codigo del banco: ', CodigoBanco, '\n')
-    print('Código de la sucursal: ', CodigoScurusal, '\n')
-    print('Número Cuenta origen: ', NumeroCuentaOrigen, '\n')
-    print('Número Cuenta destino: ', NumeroCuentaDestino, '\n')
-    print('Valor: ', Valor, '\n')
-    print('Fecha de origen: ', FechaOrigen, '\n')
-    print('Fecha de pago: ', FechaPago, '\n')
-    print('Tipo: ', TIPO, '\n')
-    print('DNI: ', DNI, '\n')
-    print('Estado: ', Estado, '\n')
-
-
-cheques()
-
+for l in lineas:
+    v = NroCheque, CodigoBanco, CodigoScurusal, NumeroCuentaOrigen, NumeroCuentaDestino, Valor, FechaOrigen, FechaPago, TIPO, DNI, Estado = l.split(
+        ';')
+    v.append(NroCheque)
+    v.append(CodigoBanco)
+    v.append(CodigoScurusal)
+    v.append(NumeroCuentaOrigen)
+    v.append(NumeroCuentaDestino)
+    v.append(Valor)
+    v.append(FechaOrigen)
+    v.append(FechaPago)
+    v.append(TIPO)
+    v.append(DNI)
+    v.append(Estado)
 # digitosDNI = []
 
 # for elem in sorted(DNI):
